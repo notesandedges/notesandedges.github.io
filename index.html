@@ -122,41 +122,51 @@
         function wrapText(text, width) {
             text.each(function() {
                 const text = d3.select(this);
-                const words = text.text().split(/\s+/).reverse();
-                const lineHeight = 1.1; // ems
-                const y = text.attr("y");
-                const dy = parseFloat(text.attr("dy"));
+                const words = text.text().split(/\s+/);
+                const lineHeight = 1.2; // Increased line height for better spacing
                 
-                let word;
+                // Clear existing content
+                text.text(null);
+                
+                // Calculate vertical offset to center the text block
+                const maxLines = 5;
+                const startY = -(lineHeight * (maxLines - 1)) / 2;
+                
                 let line = [];
                 let lineNumber = 0;
-                let tspan = text.text(null).append("tspan")
-                    .attr("x", text.attr("x"))
-                    .attr("y", y)
-                    .attr("dy", dy + "em");
-
-                // Limit to 5 lines
-                while (word = words.pop()) {
+                
+                // Create first tspan
+                let tspan = text.append("tspan")
+                    .attr("x", 0)
+                    .attr("dy", startY + "em");
+                
+                for (let word of words) {
                     line.push(word);
                     tspan.text(line.join(" "));
+                    
                     if (tspan.node().getComputedTextLength() > width) {
-                        if (lineNumber >= 4) { // 0-based index, so 4 means 5 lines
-                            // Add ellipsis to last line if there are more words
-                            if (words.length > 0) {
-                                line.pop();
+                        if (lineNumber >= maxLines - 1) {
+                            // On last line, add ellipsis
+                            line.pop();
+                            if (words.length > 1) {
                                 line.push("...");
-                                tspan.text(line.join(" "));
                             }
+                            tspan.text(line.join(" "));
                             break;
                         }
+                        
+                        // Remove the last word and create new line
                         line.pop();
                         tspan.text(line.join(" "));
+                        
+                        // Start new line
                         line = [word];
                         tspan = text.append("tspan")
-                            .attr("x", text.attr("x"))
-                            .attr("y", y)
-                            .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                            .attr("x", 0)
+                            .attr("dy", lineHeight + "em")
                             .text(word);
+                        
+                        lineNumber++;
                     }
                 }
             });
