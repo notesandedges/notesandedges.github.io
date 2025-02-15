@@ -87,7 +87,7 @@
 
     <!-- Rest of the code remains the same -->
     <div class="text">
-        <p> I am a PhD gaduate from the University of California, San Diego. My thesis focused on multiscale 
+        <p> I am a PhD graduate from the University of California, San Diego. My thesis focused on multiscale 
             intracellular electrical and electrochemical sensing of neuronal networks and cardiac monolayers.
             My focus is using subcellular biosensors to elucide mechanisms of disease within electrically active tissue,
             and to ultimately develop affordable clinical biosensors to increase global healthcare accessibility.
@@ -95,7 +95,6 @@
         <p style="margin-top: 10px;"> 
             <a href="https://drive.google.com/file/d/1fZSccGt6W7G3B9H_Qr4O9hw2-ufMquOr/view?usp=sharing">CV</a>, 
             <a href="https://drive.google.com/file/d/185Z3D17CCJN-ympuGZv2zkl6proRfy-X/view?usp=sharing">Resume</a>,
-            <a href="mailto:srshukla@ucsd.edu">Email</a>,
             <a href="https://www.linkedin.com/in/srshukla">Linkedin</a>
         </p>
         <p style="margin-top: 5px;">Interactive visualization of semantic relationships between my publications:</p>
@@ -124,7 +123,7 @@
 
                 const simulation = d3.forceSimulation(data.nodes)
                     .force('link', d3.forceLink(data.links).id(d => d.id))
-                    .force('charge', d3.forceManyBody().strength(-100))
+                    .force('charge', d3.forceManyBody().strength(-200))
                     .force('center', d3.forceCenter(width / 2, height / 2))
                     .force('collide', d3.forceCollide().radius(15));
 
@@ -218,6 +217,6 @@
         visualizeNetwork();
     </script>
 
-    <center><h6>Copyright &copy; 2024</h6></center>
+    <center><h6>Copyright &copy; 2025</h6></center>
 </body>
 </html>
