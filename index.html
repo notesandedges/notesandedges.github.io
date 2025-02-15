@@ -91,7 +91,7 @@
         // Load and visualize the network data
         async function visualizeNetwork() {
             try {
-                const response = await fetch('/api/publication-network');  // You'll need to create this endpoint
+                const response = await fetch('https://srshukla.pythonanywhere.com/api/publication-network');
                 const data = await response.json();
 
                 const simulation = d3.forceSimulation(data.nodes)
