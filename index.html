@@ -125,7 +125,7 @@
                 text.text(null);
                 
                 // Calculate vertical offset to center the text block
-                const maxLines = 5;
+                const maxLines = 7;
                 const startY = -(lineHeight * (maxLines - 1)) / 2;
                 
                 let line = [];
@@ -201,7 +201,7 @@
                     .data(data.nodes)
                     .join('text')
                     .attr('class', 'node-label')
-                    .attr('dx', 8)
+                    .attr('dx', 0)
                     .attr('dy', -2)
                     .text(d => d.title)
                     .call(wrapText, 100);
