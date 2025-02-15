@@ -51,10 +51,7 @@
             font-family: sans-serif;
         }
 
-        .node-label-background {
-            fill: white;
-            fill-opacity: 0.8;
-        }
+        
         
         .tooltip {
             position: absolute;
@@ -198,16 +195,7 @@
                     .attr('r', 6)
                     .call(drag(simulation));
 
-                // Add background rectangles for labels
-                const labelBackground = svg.append('g')
-                    .selectAll('rect')
-                    .data(data.nodes)
-                    .join('rect')
-                    .attr('class', 'node-label-background')
-                    .attr('width', 120)
-                    .attr('height', 60)
-                    .attr('x', -60)
-                    .attr('y', -30);
+
 
                 const label = svg.append('g')
                     .selectAll('text')
@@ -247,9 +235,7 @@
                         .attr('x2', d => d.target.x)
                         .attr('y2', d => d.target.y);
 
-                    labelBackground
-                        .attr('x', d => d.x - 60)
-                        .attr('y', d => d.y - 30);
+
 
                     label.selectAll('tspan')
                         .attr('x', d => d.x + 8);
