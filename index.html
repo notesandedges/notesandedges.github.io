@@ -28,11 +28,10 @@
         }
         
         #network-container {
-            width: 66%;
-            height: 300px;
+            width: 90%;
+            height: 600px;
             margin: 20px auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            border: none;
         }
         
         .node {
@@ -105,7 +104,7 @@
 
     <script>
         const width = document.getElementById('network-container').offsetWidth;
-        const height = 300;
+        const height = 600;
 
         const svg = d3.select('#network-container')
             .append('svg')
