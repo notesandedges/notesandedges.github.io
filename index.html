@@ -216,7 +216,7 @@
                     .attr('dx', 0)
                     .attr('dy', -2)
                     .text(d => d.title)
-                    .call(wrapText, 100);
+                    .call(wrapText, 150);
 
                 node.on('mouseover', (event, d) => {
                     tooltip.transition()
@@ -243,7 +243,7 @@
                     link.attr('d', linkArc);
 
                     label.selectAll('tspan')
-                        .attr('x', d => d.x + 8);
+                        .attr('x', d => d.x + 10);
                     
                     label
                         .attr('x', d => d.x)
